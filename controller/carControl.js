@@ -23,10 +23,7 @@ module.exports = class {
   static getAllCars(req, res, next) {
     Cars.findAll()
       .then((result) => {
-        res.status(200).send({
-          status: 200,
-          data: result,
-        });
+        res.render("cars/index", { ListCars : result });
       })
       .catch((err) => {
         res.status(400).send(err);

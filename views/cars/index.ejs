@@ -2,6 +2,7 @@
   <div class="col-md-6">
     <h1 class="main-title fs-20 m-0 fw-bold">List Car</h1>
   </div>
+
   <div class="col-md-6 d-flex justify-content-end">
     <a class="btn btn-primary text-white fs-14 fw-bold" href="/cars/create">
       <img class="me-2" src="/images/fi_plus.png" alt="plus" />
@@ -20,20 +21,17 @@
 <div class="cars-container">
   <div class="row">
     <!-- Card -->
+    <% for (let data of ListCars){%>
     <div class="col-md-4 mt-4">
       <div class="card">
         <img src="/images/image_1.png" class="card-img" alt="Car Image" />
         <div class="card-body p-0">
-          <h5 class="card-title mt-3 mb-1 fs-14">Nama/Tipe Mobil</h5>
-          <p class="card-harga mb-1 fs-16">Rp 430.000 / hari</p>
+          <h5 class="card-title mt-3 mb-1 fs-14"><%= data.nama%></h5>
+          <p class="card-harga mb-1 fs-16">Rp <%= data.sewa%>/ hari</p>
           <div class="card-info mt-3">
             <div class="info">
               <p class="clock d-flex fs-14">
-                <img
-                  class="me-2"
-                  src="/images/fi_clock.png"
-                  alt="clock icon"
-                />
+                <img class="me-2" src="/images/fi_clock.png" alt="clock icon" />
                 <span class="ml-2">Updated at 4 Apr 2022, 09.00</span>
               </p>
             </div>
@@ -43,7 +41,7 @@
           <div class="col-md-6">
             <a
               class="delete_btn font-weight-bold btn btn-outline-danger d-flex align-items-center justify-content-center"
-              href="#"
+              href="/cars/delete/<%= data.id%>"
             >
               <img class="me-2" src="/images/fi_trash-2.png" alt="" />
               Delete</a
@@ -52,7 +50,7 @@
           <div class="col-md-6">
             <a
               class="edit_btn font-weight-bold btn btn-success btn-outline-success d-flex align-items-center justify-content-center text-white"
-              href="/cars/update"
+              href="/cars/update/<%= data.id%>"
             >
               <img class="me-2" src="/images/fi_edit.png" alt="" />
               Edit</a
@@ -61,5 +59,6 @@
         </div>
       </div>
     </div>
+    <%}%>
   </div>
 </div>
