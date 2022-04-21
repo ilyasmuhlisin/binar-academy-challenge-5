@@ -11,9 +11,7 @@ router.get("/", CarControl.getAllCars);
 router.get("/cars/create", function (req, res, next) {
   res.render("cars/createCar");
 });
-router.get("/cars/update/:id", function (req, res, next) {
-  res.render("cars/updateCar");
-});
+router.get("/cars/update/:id", CarControl.editCars);
 
 router.use("/cars", require('./car'));
 

@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+// var bodyParser = require("body-parser");
+
 var expressLayout = require("express-ejs-layouts");
 
 var indexRouter = require('./routes');
@@ -11,10 +13,19 @@ var indexRouter = require('./routes');
 
 var app = express();
 
+// app.post('/cars/update/:id', function(req, res, next){
+//    // req.body object has your form values
+//    console.log(req.body.nama);
+//    console.log(req.body.sewa);
+//    console.log(req.body.ukuran);
+//    console.log(req.body.foto);
+// });
+
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(expressLayout);
+// app.use(express.bodyParser());
 
 app.use(logger('dev'));
 app.use(express.json());

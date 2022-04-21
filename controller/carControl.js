@@ -28,6 +28,20 @@ module.exports = class {
         res.status(400).send(err);
       });
   }
+  static editCars(req, res, next) {
+    const id = req.params.id;
+    Cars.findByPk(id)
+      .then((result) => {
+        console.log(result)
+          res.render("cars/updateCar",{data:result});
+          // res.status(200).send(
+          //   {data : result}
+          // )
+      })
+      .catch((err) => {
+        res.status(400).send(err);
+      });
+  }
   static updateCars(req, res, next) {
     const id = req.params.id;
     Cars.update(req.body, {
@@ -35,7 +49,10 @@ module.exports = class {
     })
       .then((result) => {
         if (result == 1) {
-          res.render("cars/updateCar", { result });
+          res.redirect(`${id}`);
+          // res.status(200).send(
+          //   {data : result}
+          // )
         } else {
           res.send({
             message: `cannot update id=${id}`,
