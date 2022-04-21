@@ -9,11 +9,7 @@ module.exports = class {
       foto: req.body.foto,
     })
       .then((result) => {
-        res.status(201).send({
-          status: 201,
-          message: "New car created",
-          data: result,
-        });
+        res.render("cars/createCar", { result });
       })
       .catch((err) => {
         res.status(400).send(err);
@@ -23,7 +19,10 @@ module.exports = class {
   static getAllCars(req, res, next) {
     Cars.findAll()
       .then((result) => {
-        res.render("cars/index", { ListCars : result });
+        res.render("cars/index", { ListCars: result });
+        // res.status(200).send(
+        //   {data : result}
+        // )
       })
       .catch((err) => {
         res.status(400).send(err);
@@ -36,11 +35,7 @@ module.exports = class {
     })
       .then((result) => {
         if (result == 1) {
-          res.status(201).send({
-            status: 201,
-            message: "post was updated",
-            data: result,
-          });
+          res.render("cars/updateCar", { result });
         } else {
           res.send({
             message: `cannot update id=${id}`,
@@ -59,11 +54,7 @@ module.exports = class {
     })
       .then((result) => {
         if (result == 1) {
-          res.status(201).send({
-            status: 201,
-            message: "post waas deleted",
-            data: result,
-          });
+          res.redirect("/");
         } else {
           res.send({
             message: `cannot delete id=${id}`,
