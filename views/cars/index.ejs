@@ -46,7 +46,8 @@
         </div>
         <div class="row mt-4">
           <div class="col-md-6">
-            <button style="width:100%"
+            <button
+              style="width: 100%"
               class="delete_btn font-weight-bold btn btn-outline-danger d-flex align-items-center justify-content-center"
               onclick="confirm('<%= data.id%>')"
             >
@@ -69,7 +70,7 @@
     <script>
       function confirm(id) {
         Swal.fire({
-          imageUrl: "../../images/image_1.png",
+          imageUrl: "../../images/img-BeepBeep.png",
           title: "Menghapus Data Mobil",
           text: "Setelah di hapus,data mobil tidak dapat dikembalikan.Yakin ingin menghapus?",
           showCancelButton: true,

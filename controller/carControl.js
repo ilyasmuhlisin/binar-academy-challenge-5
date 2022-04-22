@@ -9,7 +9,7 @@ module.exports = class {
       console.log("Silahkan Lengkapi data");
     }
     if (errors.length > 0) {
-      res.render("cars/createCar", { errors });
+      res.render("cars/createCar", { errors, title: "Create Car" });
     } else {
       Cars.create({
         nama: req.body.nama,
@@ -19,7 +19,7 @@ module.exports = class {
       })
         .then((result) => {
           errors.push({ msg: "Data berhasil ditambahkan" });
-          res.render("cars/createCar", { result });
+          res.render("cars/createCar", { errors,result, title: "Create Car"  });
         })
         .catch((err) => {
           res.status(400).send(err);
