@@ -21,18 +21,25 @@
 <div class="cars-container">
   <div class="row">
     <!-- Card -->
-    <% for (let data of ListCars){%>
+    <% for (let data of ListCars){%> <% var date=new Date(data.updatedAt) %>
     <div class="col-md-4 mt-4">
       <div class="card">
-        <img src="/images/image_1.png" class="card-img" alt="Car Image" />
+        <img src="<%= data.foto%>" class="card-img" alt="Car Image" />
         <div class="card-body p-0">
-          <h5 class="card-title mt-3 mb-1 fs-14"><%= data.nama%></h5>
+          <h5 class="card-title mt-3 mb-1 fs-14">
+            <%= data.nama%>/<%= data.ukuran%>
+          </h5>
           <p class="card-harga mb-1 fs-16">Rp <%= data.sewa%>/ hari</p>
           <div class="card-info mt-3">
             <div class="info">
               <p class="clock d-flex fs-14">
                 <img class="me-2" src="/images/fi_clock.png" alt="clock icon" />
-                <span class="ml-2">Updated at 4 Apr 2022, 09.00</span>
+                <span class="ml-2"
+                  >Updated at <%= date.getDate() %> <%= date.toLocaleString(
+                  undefined, { month:'short', year:'numeric' } ) %>, <%=
+                  date.toLocaleTimeString(undefined, {hour12: true, hour:
+                  '2-digit' , minute:'2-digit'}) %></span
+                >
               </p>
             </div>
           </div>

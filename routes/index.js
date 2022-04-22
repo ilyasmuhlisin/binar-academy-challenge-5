@@ -9,7 +9,7 @@ const { Cars } = require("../models");
 // });
 router.get("/", CarControl.getAllCars);
 router.get("/cars/create", function (req, res, next) {
-  res.render("cars/createCar");
+  res.render("cars/createCar", { title: "Create Car" });
 });
 router.get("/cars/update/:id", CarControl.editCars);
 

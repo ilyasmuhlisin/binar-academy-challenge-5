@@ -1,5 +1,6 @@
 <!-- <h1 class="main-title fs-20 mt-3 mb-0 fw-bold">Add New Car</h1> -->
-
+<!-- <h1 class="main-title fs-20 mt-3 mb-0 fw-bold"><%#= title%></h1> -->
+<% include ../messages %> 
 <form action="/cars/create" method="POST">
   <div class="form-card py-3 px-3 mt-3">
     <div class="row">
@@ -64,7 +65,7 @@
   </div>
   <div class="row">
     <div class="btn-wrap">
-      <a class="btn btn-outline-primary fs-14" href="#"> Cancel </a>
+      <a class="btn btn-outline-primary fs-14" href="/"> Cancel </a>
       <!-- <a class="btn btn-primary fs-14 ms-3" href="#"> -->
       <button type="submit" class="btn btn-primary fs-14 ms-3">Save</button>
       <!-- </a> -->
